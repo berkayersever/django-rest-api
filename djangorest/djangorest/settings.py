@@ -24,7 +24,7 @@ SECRET_KEY = '3t6jvaf27tt2ryzek-wtsw2nr-$v5k+g((*(a((uv^(5q0724x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'testserver']
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
