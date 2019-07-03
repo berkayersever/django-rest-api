@@ -23,9 +23,13 @@ Django REST API for People with Deadlines
             $ cd django-rest-api
         ```
     2. Create and fire up your virtual environment:
+        ```console
+            $ python -m venv env
+            $ .\env\Scripts\activate
+        ```
         ```bash
-            $ virtualenv  venv -p python3
-            $ source venv/bin/activate
+            $ virtualenv env -p python3
+            $ source env/bin/activate
         ```
     3. Install the dependencies needed to run the app:
         ```bash
