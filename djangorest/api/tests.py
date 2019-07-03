@@ -1,7 +1,8 @@
+from django.contrib.auth.models import User
 from django.test import TestCase
+from django.urls import reverse
 from rest_framework.test import APIClient
 from rest_framework import status
-from django.urls import reverse
 from .models import Bucketlist
 
 
@@ -10,8 +11,10 @@ class ModelTestCase(TestCase):
 
     def setUp(self):
         """Define the test client and other test variables."""
-        self.bucketlist_name = "Write world class code"
-        self.bucketlist = Bucketlist(name=self.bucketlist_name)
+        user = User.objects.create(username="Nerd")
+        self.name = "Write world class code"
+        # specify owner of a bucketlist
+        self.bucketlist = Bucketlist(name=self.name, owner=user)
 
     def test_model_can_create_a_bucketlist(self):
         """Test the bucketlist model can create a bucketlist."""
