@@ -23,6 +23,10 @@ class ModelTestCase(TestCase):
         new_count = Bucketlist.objects.count()
         self.assertNotEqual(old_count, new_count)
 
+    def test_model_returns_readable_representation(self):
+        """Test a readable string is returned for the model instance."""
+        self.assertEqual(str(self.bucketlist), self.name)
+
 
 class ViewsTestCase(TestCase):
     """Test suite for the api views."""
