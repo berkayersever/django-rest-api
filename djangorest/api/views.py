@@ -1,4 +1,5 @@
 from rest_framework import generics, permissions
+from .permissions import IsOwner
 from .serializers import BucketlistSerializer
 from .models import Bucketlist
 
@@ -7,7 +8,7 @@ class CreateView(generics.ListCreateAPIView):
     """This class defines the create behavior of our REST API."""
     queryset = Bucketlist.objects.all()
     serializer_class = BucketlistSerializer
-    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.IsAuthenticated, IsOwner)
 
     def perform_create(self, serializer):
         """Save the post data when creating a new Bucketlist."""
@@ -19,3 +20,4 @@ class DetailsView(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = Bucketlist.objects.all()
     serializer_class = BucketlistSerializer
+    permission_classes = (permissions.IsAuthenticated, IsOwner)
